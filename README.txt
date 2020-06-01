@@ -11,7 +11,9 @@
 
 #Sounds
 
-The website where I downloaded the sounds says they are free, but I'm not sure. By saying this, the usage here is only for studies purpose.
+The sounds used are all from Scratch. By saying this, the usage here is only for studies purpose.
+
+Scratch is developed by the Lifelong Kindergarten Group at the MIT Media Lab. See http://scratch.mit.edu. 
 
 # License
 
