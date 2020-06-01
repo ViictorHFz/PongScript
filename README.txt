@@ -11,7 +11,7 @@
 
 #Sounds
 
-The sounds used are all from Scratch. By saying this, the usage here is only for studies purpose.
+The sounds used are all from Scratch. The usage here is only for studies purpose.
 
 Scratch is developed by the Lifelong Kindergarten Group at the MIT Media Lab. See http://scratch.mit.edu. 
 
