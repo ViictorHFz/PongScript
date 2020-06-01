@@ -46,6 +46,7 @@ function setup() {
 function draw() {
     background(0);
     montaBolinha();
+    line(300, 0, 300, 400);
     movimentaBolinha();
     verificaColisaoBorda();
     montaRaquete(xRaquete, yRaquete);
