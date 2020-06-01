@@ -23,11 +23,24 @@ let chanceDeErrar = 0;
 let meusPontos = 0;
 let pontosOponente = 0;
 
+//Variáveis Sons
+let trilha;
+let raquete;
+let ponto;
+
 let colidiu = false;
+
+
+function preload() {
+    trilha = loadSound("sons/trilha.mp3");
+    raquete = loadSound("sons/raquetada.mp3");
+    ponto = loadSound("sons/ponto.mp3");
+}
 
 function setup() {
     let canvas = createCanvas(600, 400);
     canvas.parent('pong');
+    trilha.loop();
 }
 
 function draw() {
@@ -85,11 +98,13 @@ function verificaColisaoRaquete() {
     colidiu = collideRectCircle(xRaquete, yRaquete, comprimentoRaquete, alturaRaquete, xBolinha, yBolinha, raio * 2);
     if (colidiu && velocidadeXBolinha < 0) {
         velocidadeXBolinha *= -1;
+        raquete.play();
     }
 
     colidiu = collideRectCircle(xRaqueteOponente, yRaqueteOponente, comprimentoRaquete, alturaRaquete, xBolinha, yBolinha, raio);
     if (colidiu && velocidadeXBolinha > 0) {
         velocidadeXBolinha *= -1;
+        raquete.play();
     }
 }
 
@@ -131,20 +146,21 @@ function incluirPlacar() {
 function marcaPlacar() {
     if (xBolinha > 590) {
         meusPontos++;
+        ponto.play();
     }
     if (xBolinha < 10) {
         pontosOponente++;
+        ponto.play();
     }
 }
-
 
 function fimDoJogo() {
     let vencedor;
 
-    if (meusPontos >= 10) {
+    if (meusPontos >= 5) {
         vencedor = "você venceu!";
         parar_tudo(vencedor);
-    } else if (pontosOponente >= 10) {
+    } else if (pontosOponente >= 5) {
         vencedor = "Seu oponente venceu!";
         parar_tudo(vencedor);
     }
@@ -164,4 +180,6 @@ function parar_tudo(vencedor) {
     velocidadeYBolinha = 0;
     xBolinha = 300;
     yBolinha = 200;
+
+    trilha.stop();
 }
