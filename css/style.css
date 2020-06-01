@@ -1,8 +1,17 @@
+html,
 body {
-  margin-top: 50px;
-  margin-left: 50px;
+  margin: 0px;
 }
 
 canvas {
   display: block;
+}
+
+#pong {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.bt-restart {
+  margin: 10px;
 }

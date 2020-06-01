@@ -26,7 +26,8 @@ let pontosOponente = 0;
 let colidiu = false;
 
 function setup() {
-    createCanvas(600, 400);
+    let canvas = createCanvas(600, 400);
+    canvas.parent('pong');
 }
 
 function draw() {
@@ -42,6 +43,7 @@ function draw() {
     movimentaRaqueteOponente();
     incluirPlacar();
     marcaPlacar();
+    fimDoJogo();
 }
 
 function montaBolinha() {
@@ -129,4 +131,33 @@ function marcaPlacar() {
     if (xBolinha < 10) {
         pontosOponente++;
     }
+}
+
+
+function fimDoJogo() {
+    let vencedor;
+
+    if (meusPontos >= 10) {
+        vencedor = "você venceu!";
+        parar_tudo(vencedor);
+    } else if (pontosOponente >= 10) {
+        vencedor = "Seu oponente venceu!";
+        parar_tudo(vencedor);
+    }
+}
+
+function parar_tudo(vencedor) {
+
+    fill(color(255, 193, 7));
+    rect(200, 10, 200, 40, 20);
+
+    noStroke();
+    fill(0);
+    text(vencedor, 300, 30);
+    textAlign(CENTER, CENTER);
+
+    velocidadeXBolinha = 0;
+    velocidadeYBolinha = 0;
+    xBolinha = 300;
+    yBolinha = 200;
 }
